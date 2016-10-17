@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"  
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="box" extends="struts-default">
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+
+		<action name="booksArray" class="com.buxiaoyu.action.bookAction"
+			method="BooksArray">
+			<result name="success">/booksArray.jsp</result>
+		</action>
+
+		<action name="AuthorsArray" class="com.buxiaoyu.action.bookAction"
+			method="AuthorsArray">
+			<result name="success">/AuthorsArray.jsp</result>
+		</action>
+
+		<action name="delBook" class="com.buxiaoyu.action.bookAction"
+			method="delBook">
+			<result name="success" type="redirect">/booksArray.action</result>
+		</action>
+
+		<action name="AuthorsSearch">
+			<result>/AuthorsSearch.jsp</result>
+		</action>
+
+		<action name="clickAuthor" class="com.buxiaoyu.action.bookAction"
+			method="updateAuthor">
+			<result>/clickAuthor.jsp</result>
+		</action>
+
+		<action name="searchBooks" class="com.buxiaoyu.action.bookAction"
+			method="searchBooks">
+			<result name="success">/booksArray.jsp</result>
+			<result name="noAuthor">/noAuthor.jsp</result>
+			<result name="moreThenOne">/noAuthor.jsp</result>
+		</action>
+
+		<action name="Addbook">
+			<result name="success">/Addbook.jsp</result>
+		</action>
+
+		<action name="bookAdded" class="com.buxiaoyu.action.bookAction"
+			method="addBook">
+			<result name="success">/addBookSuccess.jsp</result>
+			<result name="input">/${lastInputPage}.jsp</result>
+			<result name="noAuthor">/addAuthor.jsp</result>
+		</action>
+
+
+		<action name="updateBook" class="com.buxiaoyu.action.bookAction"
+			method="updateBook">
+			<result name="success">/updateBook.jsp</result>
+		</action>
+
+		<action name="commitUpdatedBook" class="com.buxiaoyu.action.bookAction"
+			method="indexUpdateBook">
+			<result name="success">/updateSuccess.jsp</result>
+			<result name="input">/updateFail.jsp</result>
+		</action>
+
+		<action name="commitUpdatedAuthor" class="com.buxiaoyu.action.bookAction"
+			method="commitUpdatedAuthor">
+			<result name="success">/updateSuccess.jsp</result>
+			<result name="input">/updateFail.jsp</result>
+		</action>
+	</package>
+</struts>
